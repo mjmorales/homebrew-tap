@@ -1,21 +1,22 @@
 class Keel < Formula
+  include Language::Python::Virtualenv
+
   desc "Architectural contract enforcement for LLM-driven codebases"
   homepage "https://github.com/mjmorales/keel"
-  version "1.3.2"
+  url "https://github.com/mjmorales/keel/archive/refs/tags/v1.3.3.tar.gz"
+  sha256 "06a98c1a561abf4f0eed94b8f5cdf28a54c43bad8fb5728bbbaadda876090a8e"
   license "MIT"
 
-  depends_on "docker"
+  depends_on "python@3.12"
 
   def install
-    bin.install_symlink "/usr/local/bin/docker" => "docker"
-    (bin/"keel").write <<~EOS
-      #!/bin/bash
-      exec docker run --rm -v "$(pwd):/project" ghcr.io/mjmorales/keel:1.3.2 "$@"
-    EOS
-    (bin/"keel").chmod 0755
+    venv = virtualenv_create(libexec, "python3.12")
+    ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version.to_s
+    venv.pip_install buildpath/"cli"
+    bin.install_symlink Dir[libexec/"bin/keel"]
   end
 
   test do
-    assert_match "keel", shell_output("#{bin}/keel --help")
+    assert_match version.to_s, shell_output("#{bin}/keel --version")
   end
 end
