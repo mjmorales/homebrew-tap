@@ -3,8 +3,8 @@ class Keel < Formula
 
   desc "Architectural contract enforcement for LLM-driven codebases"
   homepage "https://github.com/mjmorales/keel"
-  url "https://github.com/mjmorales/keel/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "b63e60cd47de66f6dcfb3938ed1940541f9aac57e15f746a7b13c62c026cf890"
+  url "https://github.com/mjmorales/keel/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "a8059e13ddbfd865e7431a52c3d85c1c169dcc2b28c6b7a835e69cc62519a28d"
   license "MIT"
 
   depends_on "python@3.12"
