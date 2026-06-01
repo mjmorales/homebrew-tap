@@ -6,6 +6,7 @@ class Keel < Formula
   url "https://github.com/mjmorales/keel/archive/refs/tags/v1.5.4.tar.gz"
   sha256 "ed6e9ad50e438a56244c4b9a802aa9981e5e6844ed299dc3f33fb4742e1dea3f"
   license "MIT"
+  revision 1
 
   depends_on "python@3.12"
 
