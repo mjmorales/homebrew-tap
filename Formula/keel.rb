@@ -10,9 +10,15 @@ class Keel < Formula
   depends_on "python@3.12"
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    virtualenv_create(libexec, "python3.12")
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version.to_s
-    venv.pip_install buildpath/"cli"
+    # Homebrew's `venv.pip_install` runs pip with `--no-deps --no-binary :all:`
+    # under build isolation. keel's build backend is hatchling, which is
+    # self-hosting, so building it from source needs hatchling — pip deadlocks
+    # ("hatchling ... is already being built"). Bootstrap pip into the venv and
+    # do a normal install so binary wheels satisfy the build backend.
+    system libexec/"bin/python", "-m", "ensurepip"
+    system libexec/"bin/python", "-m", "pip", "install", "-v", buildpath/"cli"
     bin.install_symlink Dir[libexec/"bin/keel"]
   end
 
