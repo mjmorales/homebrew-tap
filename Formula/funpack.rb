@@ -4,7 +4,7 @@ class Funpack < Formula
   version "0.6.1"
   # Upstream ships no LICENSE file yet; `license` intentionally omitted.
 
-  # funpack-live (the runtime) links SDL2 at runtime; the funpack compiler is headless.
+  # funpack is one binary (compiler + runtime); it links SDL2 at runtime.
   depends_on "sdl2"
 
   on_macos do
@@ -28,12 +28,10 @@ class Funpack < Formula
 
   def install
     bin.install "funpack"
-    bin.install "funpack-live"
   end
 
   test do
-    # With no project on disk, funpack prints its usage banner to stderr and exits 2.
-    assert_match "usage: funpack", shell_output("#{bin}/funpack 2>&1", 2)
-    assert_path_exists bin/"funpack-live"
+    # With no project on disk, funpack prints its command usage to stderr and exits 2.
+    assert_match "Available Commands", shell_output("#{bin}/funpack 2>&1", 2)
   end
 end
