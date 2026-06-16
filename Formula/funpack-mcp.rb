@@ -1,24 +1,24 @@
 class FunpackMcp < Formula
   desc "Model Context Protocol server for the funpack toolchain"
   homepage "https://github.com/mjmorales/funpack"
-  version "0.3.2"
+  version "0.3.3"
 
   on_macos do
     # Apple Silicon only — funpack-mcp publishes no Intel macOS build.
     on_arm do
-      url "https://github.com/mjmorales/funpack/releases/download/funpack-mcp-v0.3.2/funpack-mcp-v0.3.2-macos-arm64.tar.gz"
-      sha256 "2d17638b62ee7028be358cfa67970a0d0c7e53d958eab4b3b1677407ae46863d"
+      url "https://github.com/mjmorales/funpack/releases/download/funpack-mcp-v0.3.3/funpack-mcp-v0.3.3-macos-arm64.tar.gz"
+      sha256 "0feb8c9e4e7c5a883a9359318f4158134402ea5ff4c01c8c8e99fc00e3b1260a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/mjmorales/funpack/releases/download/funpack-mcp-v0.3.2/funpack-mcp-v0.3.2-linux-arm64.tar.gz"
-      sha256 "e068c97fdb72fe65c989e4accca2e1a644635cdcbeca55145e42590ef1ba2e7f"
+      url "https://github.com/mjmorales/funpack/releases/download/funpack-mcp-v0.3.3/funpack-mcp-v0.3.3-linux-arm64.tar.gz"
+      sha256 "db4d9f817979e6d0420102bd5b976131102a958ace89ddb2d5806fada6112f4b"
     end
     on_intel do
-      url "https://github.com/mjmorales/funpack/releases/download/funpack-mcp-v0.3.2/funpack-mcp-v0.3.2-linux-x64.tar.gz"
-      sha256 "8e90126a93f45501cb96e3224152610cb14e4d5c06facd8d41b4b5c31518f472"
+      url "https://github.com/mjmorales/funpack/releases/download/funpack-mcp-v0.3.3/funpack-mcp-v0.3.3-linux-x64.tar.gz"
+      sha256 "7577d74606b61408e064bb8ad16a60236c987ba659bcf1050dad28072c71ff56"
     end
   end
 
