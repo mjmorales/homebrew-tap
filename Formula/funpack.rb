@@ -1,7 +1,7 @@
 class Funpack < Formula
   desc "Compiler and runtime for funpack, an LL(1) agent-first game-dev language"
   homepage "https://github.com/mjmorales/funpack"
-  version "0.19.0"
+  version "0.20.0"
   # Upstream ships no LICENSE file yet; `license` intentionally omitted.
 
   # funpack is one binary (compiler + runtime); it links SDL2 at runtime.
@@ -10,19 +10,19 @@ class Funpack < Formula
   on_macos do
     # Apple Silicon only — funpack publishes no Intel macOS build.
     on_arm do
-      url "https://github.com/mjmorales/funpack/releases/download/v0.19.0/funpack-v0.19.0-macos-arm64.tar.gz"
-      sha256 "1d68e4af21908558a70289b72fd5a83a6fbb4a4c67c3f6f54409a6cd437259d5"
+      url "https://github.com/mjmorales/funpack/releases/download/v0.20.0/funpack-v0.20.0-macos-arm64.tar.gz"
+      sha256 "948e80b32532922bb948b9d26a5f6bd9ae8b93edd752c61692b87cf96822a315"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/mjmorales/funpack/releases/download/v0.19.0/funpack-v0.19.0-linux-arm64.tar.gz"
-      sha256 "17822e9b3b7c81f42b679649d15fb1ff6bb13cbc299544fdafbdbd8790a1eeba"
+      url "https://github.com/mjmorales/funpack/releases/download/v0.20.0/funpack-v0.20.0-linux-arm64.tar.gz"
+      sha256 "019f8a3230c66d7bdc07483e914d4c6d00c8cbb22d5acd198b83670b4bf0d851"
     end
     on_intel do
-      url "https://github.com/mjmorales/funpack/releases/download/v0.19.0/funpack-v0.19.0-linux-x64.tar.gz"
-      sha256 "26893f70a0a3cf5e7510e4801ef0852751bf5e4b21fab86dba6d384e47d932bc"
+      url "https://github.com/mjmorales/funpack/releases/download/v0.20.0/funpack-v0.20.0-linux-x64.tar.gz"
+      sha256 "1c36b79e2c5eaf3c8d53406f1cfbfd469b60f21a65f8f93e87478c3b0abb02f4"
     end
   end
 
